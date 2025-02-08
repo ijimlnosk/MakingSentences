@@ -3,9 +3,13 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postCreateProblem } from "../apis/problem";
 import { useProblemForm } from "../hooks/useProblemForm";
 import KeywordInputList from "../components/createProblem/keywordInputList";
+import styles from "./create-problem.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const CreateProblem = () => {
   const queryClient = useQueryClient();
+
+  const navigate = useNavigate();
 
   const mutation = useMutation({
     mutationFn: (newProblem: ProblemForm) => postCreateProblem(newProblem),
@@ -32,20 +36,24 @@ const CreateProblem = () => {
     mutation.mutate(data);
   };
 
+  const handlePrev = () => {
+    navigate("/");
+  };
+
   return (
-    <div>
+    <div className={styles.container}>
       <h2>문제 생성</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+      <form className={styles.create} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.item}>
           <label>제목</label>
-          <input type="text" {...register("title")} />
+          <input className={styles.input} type="text" {...register("title")} />
           {errors.title && (
             <p style={{ color: "red" }}>{errors.title.message}</p>
           )}
         </div>
-        <div>
+        <div className={styles.item}>
           <label>문장</label>
-          <textarea {...register("sentences")} />
+          <textarea {...register("sentences")} className={styles.input} />
           {errors.sentences && (
             <p style={{ color: "red" }}>{errors.sentences.message}</p>
           )}
@@ -60,6 +68,7 @@ const CreateProblem = () => {
           {mutation.isPending ? "전송 중..." : "문제 생성"}
         </button>
       </form>
+      <button onClick={handlePrev}>뒤로가기</button>
     </div>
   );
 };

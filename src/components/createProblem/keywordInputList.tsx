@@ -1,9 +1,5 @@
-export type KeywordInputListProps = {
-  keywords: string[];
-  onKeywordChange: (index: number, value: string) => void;
-  onAddKeyword: () => void;
-  onRemoveKeyword: (index: number) => void;
-};
+import { KeywordInputListProps } from "./type";
+import styles from "../../page/create-problem.module.scss";
 
 const KeywordInputList = ({
   keywords,
@@ -12,7 +8,7 @@ const KeywordInputList = ({
   onRemoveKeyword,
 }: KeywordInputListProps) => {
   return (
-    <div>
+    <div className={styles.item}>
       <label>키워드</label>
       {keywords.map((keyword, index) => (
         <div key={index}>

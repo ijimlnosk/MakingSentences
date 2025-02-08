@@ -29,6 +29,7 @@ const ProblemDetail = () => {
           isCorrect={isCorrect}
           checkAnswer={checkAnswer}
           handleKeyDown={handleKeyDown}
+          hiddenKeyword={hiddenKeyword}
         />
       </div>
     </div>

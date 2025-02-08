@@ -7,6 +7,7 @@ const AnswerInput = ({
   isCorrect,
   checkAnswer,
   handleKeyDown,
+  hiddenKeyword,
 }: AnswerInputProps) => {
   return (
     <div>
@@ -26,7 +27,10 @@ const AnswerInput = ({
           {isCorrect ? (
             <p className={styles.correct}>O</p>
           ) : (
-            <p className={styles.fail}>X</p>
+            <div>
+              <p className={styles.fail}>X</p>
+              <p>정답: {hiddenKeyword}</p>
+            </div>
           )}
         </div>
       )}

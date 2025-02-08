@@ -4,4 +4,5 @@ export type AnswerInputProps = {
   isCorrect: boolean | null;
   checkAnswer: () => void;
   handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  hiddenKeyword: string | null;
 };
