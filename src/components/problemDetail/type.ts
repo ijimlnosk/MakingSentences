@@ -1,8 +1,11 @@
 export type AnswerInputProps = {
-  userAnswer: string;
-  setUserAnswer: (value: string) => void;
+  userAnswers: string[];
+  setUserAnswer: (index: number, value: string) => void;
   isCorrect: boolean | null;
   checkAnswer: () => void;
-  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  hiddenKeyword: string | null;
+  handleKeyDown: (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    index: number
+  ) => void;
+  hiddenKeywords: string[] | null;
 };

@@ -1,9 +1,21 @@
-.correct {
-  color: green;
-  font-size: large;
-}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
 
-.fail {
-  color: red;
-  font-size: large;
+  .item {
+    margin-bottom: 12px;
+  }
+
+  .correct {
+    color: green;
+    font-size: large;
+  }
+
+  .fail {
+    color: red;
+    font-size: large;
+  }
 }

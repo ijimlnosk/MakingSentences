@@ -1,4 +1,14 @@
-export const maskSentence = (sentence: string, keyword: string | null) => {
-  if (!keyword) return sentence;
-  return sentence.replace(new RegExp(keyword, "gi"), "_____");
+export const maskSentence = (sentence: string, keywords: string[] | null) => {
+  if (!keywords || keywords.length === 0) return sentence;
+  let maskedSentence = sentence;
+
+  keywords.forEach((keyword, index) => {
+    const regex = new RegExp(
+      `(${keyword.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")})`,
+      "gi"
+    );
+    maskedSentence = maskedSentence.replace(regex, `(${index + 1})`);
+  });
+
+  return maskedSentence;
 };

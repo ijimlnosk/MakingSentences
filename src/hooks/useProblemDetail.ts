@@ -11,13 +11,14 @@ export const useProblemDetail = () => {
     queryFn: () => getProblemDetail(problemId),
   });
 
-  const [hiddenKeyword, setHiddenKeyword] = useState<string | null>(null);
+  const [hiddenKeyword, setHiddenKeyword] = useState<string[] | null>(null);
 
   useEffect(() => {
     if (!data?.keywords || data.keywords.length === 0) return;
-    const randomIndex = Math.floor(Math.random() * data.keywords.length);
+    // const randomIndex = Math.floor(Math.random() * data.keywords.length);
 
-    setHiddenKeyword(data.keywords[randomIndex]);
+    // setHiddenKeyword(data.keywords[randomIndex]);
+    setHiddenKeyword(data.keywords);
   }, [data]);
 
   return { data, isLoading, isError, hiddenKeyword };

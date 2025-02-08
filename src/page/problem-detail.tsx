@@ -7,7 +7,7 @@ import AnswerInput from "../components/problemDetail/answerInput";
 const ProblemDetail = () => {
   const { data, isLoading, isError, hiddenKeyword } = useProblemDetail();
 
-  const { userAnswer, setUserAnswer, isCorrect, checkAnswer, handleKeyDown } =
+  const { userAnswers, setUserAnswer, isCorrect, checkAnswer, handleKeyDown } =
     useAnswer(hiddenKeyword);
 
   if (isLoading) return <div>Loading...</div>;
@@ -19,17 +19,17 @@ const ProblemDetail = () => {
       <div>
         <div className={styles.title}>{data?.title}</div>
         <div className={styles.item}>
-          {data.sentences.split(".").map((sentence: string, index: number) => {
+          {data.sentences.split(";").map((sentence: string, index: number) => {
             return <p key={index}>{maskSentence(sentence, hiddenKeyword)}</p>;
           })}
         </div>
         <AnswerInput
-          userAnswer={userAnswer}
+          userAnswers={userAnswers}
           setUserAnswer={setUserAnswer}
           isCorrect={isCorrect}
           checkAnswer={checkAnswer}
           handleKeyDown={handleKeyDown}
-          hiddenKeyword={hiddenKeyword}
+          hiddenKeywords={hiddenKeyword}
         />
       </div>
     </div>

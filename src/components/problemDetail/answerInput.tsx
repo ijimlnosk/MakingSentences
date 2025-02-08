@@ -2,23 +2,28 @@ import { AnswerInputProps } from "./type";
 import styles from "./answerInput.module.scss";
 
 const AnswerInput = ({
-  userAnswer,
+  userAnswers,
   setUserAnswer,
   isCorrect,
   checkAnswer,
   handleKeyDown,
-  hiddenKeyword,
+  hiddenKeywords,
 }: AnswerInputProps) => {
   return (
-    <div>
-      <input
-        type="text"
-        value={userAnswer}
-        onChange={(e) => setUserAnswer(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="정답을 입력하세요"
-        disabled={isCorrect === true}
-      />
+    <div className={styles.container}>
+      {/* 히든 키워드의 개수만큼 input을 늘린다 */}
+      {hiddenKeywords?.map((_, index) => (
+        <input
+          key={index}
+          type="text"
+          value={userAnswers[index]}
+          onChange={(e) => setUserAnswer(index, e.target.value)}
+          onKeyDown={(e) => handleKeyDown(e, index)}
+          placeholder={`정답 ${index + 1}`}
+          disabled={isCorrect === true}
+          className={styles.item}
+        />
+      ))}
       <button onClick={checkAnswer} disabled={isCorrect === true}>
         제출
       </button>
@@ -29,7 +34,7 @@ const AnswerInput = ({
           ) : (
             <div>
               <p className={styles.fail}>X</p>
-              <p>정답: {hiddenKeyword}</p>
+              <p>정답: {hiddenKeywords?.join(", ")}</p>
             </div>
           )}
         </div>
