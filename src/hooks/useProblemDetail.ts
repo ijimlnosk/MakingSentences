@@ -15,9 +15,6 @@ export const useProblemDetail = () => {
 
   useEffect(() => {
     if (!data?.keywords || data.keywords.length === 0) return;
-    // const randomIndex = Math.floor(Math.random() * data.keywords.length);
-
-    // setHiddenKeyword(data.keywords[randomIndex]);
     setHiddenKeyword(data.keywords);
   }, [data]);
 

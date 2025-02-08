@@ -53,7 +53,7 @@ const CreateProblem = () => {
         </div>
         <div className={styles.item}>
           <label>문장</label>
-          <textarea {...register("sentences")} className={styles.input} />
+          <textarea {...register("sentences")} className={styles.textarea} />
           {errors.sentences && (
             <p style={{ color: "red" }}>{errors.sentences.message}</p>
           )}
