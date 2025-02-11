@@ -33,6 +33,7 @@ const CreateProblem = () => {
   } = useProblemForm();
 
   const onSubmit = (data: ProblemForm) => {
+    console.log("문제 생성 클릭");
     mutation.mutate(data);
   };
 
@@ -53,9 +54,9 @@ const CreateProblem = () => {
         </div>
         <div className={styles.item}>
           <label>문장</label>
-          <textarea {...register("sentences")} className={styles.textarea} />
-          {errors.sentences && (
-            <p style={{ color: "red" }}>{errors.sentences.message}</p>
+          <textarea {...register("description")} className={styles.textarea} />
+          {errors.description && (
+            <p style={{ color: "red" }}>{errors.description.message}</p>
           )}
         </div>
         <KeywordInputList
@@ -64,11 +65,17 @@ const CreateProblem = () => {
           onKeywordChange={handleKeywordChange}
           onRemoveKeyword={removeKeyword}
         />
-        <button type="submit" disabled={mutation.isPending}>
+        <button
+          type="submit"
+          disabled={mutation.isPending}
+          className={styles.createProblem}
+        >
           {mutation.isPending ? "전송 중..." : "문제 생성"}
         </button>
       </form>
-      <button onClick={handlePrev}>뒤로가기</button>
+      <button onClick={handlePrev} className={styles.back}>
+        ←
+      </button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 export type ProblemForm = {
   title: string;
-  sentences: string;
+  description: string;
   keywords?: string[];
 };

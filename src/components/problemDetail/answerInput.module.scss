@@ -1,13 +1,12 @@
+@import "../../styles/common.scss";
+
 .container {
+  @include container;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
-
-  .item {
-    margin-bottom: 12px;
-  }
 
   .correct {
     color: green;
@@ -17,5 +16,14 @@
   .fail {
     color: red;
     font-size: large;
+  }
+
+  .input {
+    @include input-style;
+    margin-bottom: 12px;
+  }
+
+  .button {
+    @include button-style;
   }
 }

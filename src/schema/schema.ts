@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 export const schema = yup.object().shape({
   title: yup.string().required("제목을 입력하세요."),
-  sentences: yup.string().required("문장을 입력하세요."),
+  description: yup.string().required("문장을 입력하세요."),
   keywords: yup
     .array()
     .of(

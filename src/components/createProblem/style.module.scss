@@ -1,0 +1,45 @@
+@import "../../styles/common.scss";
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6px;
+}
+
+.keywordBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyword {
+  @include input-style;
+  width: 80%;
+  height: 20px;
+  margin: 4px 0px;
+}
+
+.delete {
+  @include button-style;
+  width: 40px;
+  height: 30px;
+  margin: 12px 12px;
+}
+
+.addKeywordBox {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.addKeyword {
+  @include button-style;
+  width: 100%;
+  height: 30px;
+}

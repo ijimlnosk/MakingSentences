@@ -14,7 +14,7 @@ export const useProblemForm = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       title: "",
-      sentences: "",
+      description: "",
       keywords: [""],
     },
     shouldUnregister: false,

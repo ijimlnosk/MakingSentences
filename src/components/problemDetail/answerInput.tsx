@@ -21,10 +21,14 @@ const AnswerInput = ({
           onKeyDown={(e) => handleKeyDown(e, index)}
           placeholder={`정답 ${index + 1}`}
           disabled={isCorrect === true}
-          className={styles.item}
+          className={styles.input}
         />
       ))}
-      <button onClick={checkAnswer} disabled={isCorrect === true}>
+      <button
+        onClick={checkAnswer}
+        disabled={isCorrect === true}
+        className={styles.button}
+      >
         제출
       </button>
       {isCorrect !== null && (

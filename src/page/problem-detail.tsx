@@ -19,9 +19,11 @@ const ProblemDetail = () => {
       <div>
         <div className={styles.title}>{data?.title}</div>
         <div className={styles.item}>
-          {data.sentences.split(";").map((sentence: string, index: number) => {
-            return <p key={index}>{maskSentence(sentence, hiddenKeyword)}</p>;
-          })}
+          {data.description
+            .split(";")
+            .map((sentence: string, index: number) => {
+              return <p key={index}>{maskSentence(sentence, hiddenKeyword)}</p>;
+            })}
         </div>
         <AnswerInput
           userAnswers={userAnswers}

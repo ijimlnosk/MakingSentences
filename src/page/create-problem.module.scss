@@ -1,18 +1,15 @@
+@import "../styles/common.scss";
+
 .container {
+  @include container; // 공통 스타일 적용
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f9f9f9;
 
   .create {
+    width: 300px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: center;
     border: 1px solid gray;
     border-radius: 6px;
   }
@@ -21,21 +18,42 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-items: center;
+    align-items: flex-start;
     padding: 6px;
   }
 
   .input {
+    @include input-style;
     width: 100%;
     height: 20px;
-    padding: 2px;
+    margin: 4px 0px;
   }
 
   .textarea {
+    @include input-style;
     width: 100%;
     height: 200px;
-    padding: 2px;
     resize: none;
+    margin: 8px 0px;
+  }
+
+  .createProblem {
+    width: 100%;
+    height: 50px;
+    background-color: #292929;
+    color: white;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .back {
+    @include button-style;
+    width: 350px;
+    height: 40px;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
   }
 }
