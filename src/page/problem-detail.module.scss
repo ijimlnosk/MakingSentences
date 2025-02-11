@@ -1,16 +1,23 @@
+@import "../styles/common.scss";
+
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f9f9f9;
+  @include container;
+
+  .box {
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   .title {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    font-size: xx-large;
+    font-weight: bold;
   }
 
   .item {

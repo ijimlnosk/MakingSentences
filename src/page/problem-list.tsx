@@ -2,9 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getProblemList } from "../apis/problem";
 import styles from "./problem-list.module.scss";
 import { useNavigate } from "react-router-dom";
+import { ProblemListItem, ProblemListResponse } from "../apis/type";
+import Loading from "../components/common/loading";
+import ErrorScreen from "../components/common/errorScreen";
 
 const ProblemList = () => {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError } = useQuery<ProblemListResponse>({
     queryKey: ["problemList"],
     queryFn: getProblemList,
   });
@@ -15,17 +18,17 @@ const ProblemList = () => {
     navigate(`/problem-detail/${id}`);
   };
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>문제 데이터가 없습니다.</div>;
+  if (isLoading) return <Loading />;
+  if (isError) return <ErrorScreen message="데이터가 존재하지 않습니다." />;
 
   return (
     <div className={styles.container}>
-      <div>problem list</div>
-      <div>
-        {data?.map((item) => (
+      <div className={styles.title}>문제 목록</div>
+      <div className={styles.box}>
+        {data?.data.map((item: ProblemListItem) => (
           <div
-            key={item.id}
-            onClick={() => handleProblemDetail(item.id)}
+            key={item.questionId}
+            onClick={() => handleProblemDetail(item.questionId)}
             className={styles.item}
           >
             {item.title}

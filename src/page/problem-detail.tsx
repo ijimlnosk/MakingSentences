@@ -3,6 +3,8 @@ import { useProblemDetail } from "../hooks/useProblemDetail";
 import { maskSentence } from "../utils/maskSentence";
 import { useAnswer } from "../hooks/useAnswer";
 import AnswerInput from "../components/problemDetail/answerInput";
+import Loading from "../components/common/loading";
+import ErrorScreen from "../components/common/errorScreen";
 
 const ProblemDetail = () => {
   const { data, isLoading, isError, hiddenKeyword } = useProblemDetail();
@@ -10,16 +12,17 @@ const ProblemDetail = () => {
   const { userAnswers, setUserAnswer, isCorrect, checkAnswer, handleKeyDown } =
     useAnswer(hiddenKeyword);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError || !data) return <div>문제 데이터가 없습니다.</div>;
+  if (isLoading) return <Loading />;
+  if (isError || !data) return <ErrorScreen message="문제 데이터가 없습니다" />;
+
+  console.log(data.data.description);
 
   return (
     <div className={styles.container}>
-      <div>problem detail</div>
-      <div>
-        <div className={styles.title}>{data?.title}</div>
+      <div className={styles.box}>
+        <div className={styles.title}>{data?.data.title}</div>
         <div className={styles.item}>
-          {data.description
+          {data.data.description
             .split(";")
             .map((sentence: string, index: number) => {
               return <p key={index}>{maskSentence(sentence, hiddenKeyword)}</p>;

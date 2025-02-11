@@ -1,12 +1,29 @@
 export type ProblemItem = {
-  id: number;
+  questionId: number;
   title: string;
   description: string;
   keywords?: string[];
 };
 
-export type ProbelmDetailResponse = {
-  id: number;
+export type ProblemListResponse = {
+  data: ProblemListItem[];
+  status: string;
+  message: string;
+};
+
+export type ProblemListItem = {
+  questionId: number;
+  title: string;
+};
+
+export type ProblemDetailResponse = {
+  data: ProbelmDetailItem;
+  status: string;
+  message: string;
+};
+
+export type ProbelmDetailItem = {
+  questionId: number;
   title: string;
   description: string;
   keywords?: string[];

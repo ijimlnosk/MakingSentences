@@ -1,19 +1,20 @@
-import axios from "axios";
 import {
   PostCreateProblemProps,
   PostCreateProblemResponse,
-  ProbelmDetailResponse,
-  ProblemItem,
+  ProblemDetailResponse,
+  ProblemListResponse,
 } from "./type";
 import { axiosInstance } from "./axiosInstance";
 
 export const getProblemList = async () => {
-  const response = await axiosInstance.get<ProblemItem[]>("/keyword");
+  const response = await axiosInstance.get<ProblemListResponse>("/keyword");
   return response.data;
 };
 
 export const getProblemDetail = async (id: number) => {
-  const response = await axios.get<ProbelmDetailResponse>(`/keyword${id}`);
+  const response = await axiosInstance.get<ProblemDetailResponse>(
+    `/keyword/${id}`
+  );
   return response.data;
 };
 
