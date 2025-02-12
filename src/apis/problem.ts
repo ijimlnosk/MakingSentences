@@ -23,7 +23,6 @@ export const postCreateProblem = async ({
   description,
   keywords,
 }: PostCreateProblemProps) => {
-  console.log(import.meta.env.VITE_BASE_URL);
   const response = await axiosInstance.post<PostCreateProblemResponse>(
     "/keyword",
     {
@@ -32,6 +31,10 @@ export const postCreateProblem = async ({
       keywords,
     }
   );
-  console.log(response.data);
+  return response.data;
+};
+
+export const deleteProblem = async (qusetionId: number) => {
+  const response = await axiosInstance.delete(`/keyword/${qusetionId}`);
   return response.data;
 };
