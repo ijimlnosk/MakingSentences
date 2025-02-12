@@ -1,7 +1,7 @@
-@import "../styles/common.scss";
+@use "../styles/mixin" as mixin;
 
 .container {
-  @include container;
+  @include mixin.container;
 
   .title {
     font-size: 24px;

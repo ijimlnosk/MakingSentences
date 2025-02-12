@@ -1,7 +1,7 @@
-@import "../../styles/common.scss";
+@use "../../styles/mixin" as mixin;
 
 .container {
-  @include container;
+  @include mixin.container;
   flex-direction: column;
 
   .correct {
@@ -15,11 +15,11 @@
   }
 
   .input {
-    @include input-style;
+    @include mixin.input-style;
     margin-bottom: 12px;
   }
 
   .button {
-    @include button-style;
+    @include mixin.button-style;
   }
 }

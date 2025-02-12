@@ -1,7 +1,7 @@
-@import "../styles/common.scss";
+@use "../styles/mixin" as mixin;
 
 .container {
-  @include container;
+  @include mixin.container;
 
   .box {
     width: 500px;
@@ -32,7 +32,7 @@
   }
 
   .back {
-    @include button-style;
+    @include mixin.button-style;
     width: 350px;
     height: 40px;
     font-size: xx-large;

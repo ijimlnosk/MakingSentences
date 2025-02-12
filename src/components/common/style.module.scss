@@ -1,7 +1,7 @@
-@import "../../styles/common.scss";
+@use "../../styles/mixin" as layout;
 
 .container {
-  @include container;
+  @include layout.container;
   height: 100vh;
 }
 

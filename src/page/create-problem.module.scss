@@ -1,7 +1,7 @@
-@import "../styles/common.scss";
+@use "../styles/mixin" as mixin;
 
 .container {
-  @include container; // 공통 스타일 적용
+  @include mixin.container; // 공통 스타일 적용
   width: 100%;
 
   .create {
@@ -23,14 +23,14 @@
   }
 
   .input {
-    @include input-style;
+    @include mixin.input-style;
     width: 100%;
     height: 20px;
     margin: 4px 0px;
   }
 
   .textarea {
-    @include input-style;
+    @include mixin.input-style;
     width: 100%;
     height: 200px;
     resize: none;
@@ -47,7 +47,7 @@
   }
 
   .back {
-    @include button-style;
+    @include mixin.button-style;
     width: 350px;
     height: 40px;
     font-size: xx-large;
