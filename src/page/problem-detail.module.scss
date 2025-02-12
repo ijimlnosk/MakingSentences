@@ -18,11 +18,12 @@
     justify-content: center;
     font-size: xx-large;
     font-weight: bold;
+    margin-bottom: 20px;
   }
 
   .item {
     width: 300px;
-    height: 300px;
+    height: 100%;
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
@@ -31,14 +32,10 @@
     gap: 4px;
   }
 
-  .back {
-    @include mixin.button-style;
-    width: 350px;
-    height: 40px;
-    font-size: xx-large;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
+  .text {
+    width: 300px;
+    height: 300px;
+    border: 1px solid white;
+    overflow-y: auto;
   }
 }

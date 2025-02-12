@@ -6,6 +6,7 @@ import { ProblemListItem, ProblemListResponse } from "../apis/type";
 import Loading from "../components/common/loading";
 import ErrorScreen from "../components/common/errorScreen";
 import DeleteProblemButton from "../components/deleteProblemButton";
+import BackButton from "../components/common/backButton";
 
 const ProblemList = () => {
   const { data, isLoading, isError } = useQuery<ProblemListResponse>({
@@ -27,9 +28,8 @@ const ProblemList = () => {
       <div className={styles.title}>문제 목록</div>
       <div className={styles.box}>
         {data?.data.map((item: ProblemListItem) => (
-          <div className={styles.itemBox}>
+          <div className={styles.itemBox} key={item.questionId}>
             <div
-              key={item.questionId}
               onClick={() => handleProblemDetail(item.questionId)}
               className={styles.item}
             >
@@ -39,6 +39,7 @@ const ProblemList = () => {
           </div>
         ))}
       </div>
+      <BackButton url="/" />
     </div>
   );
 };

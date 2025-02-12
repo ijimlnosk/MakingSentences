@@ -5,6 +5,7 @@ import { useProblemForm } from "../hooks/useProblemForm";
 import KeywordInputList from "../components/createProblem/keywordInputList";
 import styles from "./create-problem.module.scss";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../components/common/backButton";
 
 const CreateProblem = () => {
   const queryClient = useQueryClient();
@@ -35,10 +36,6 @@ const CreateProblem = () => {
   const onSubmit = (data: ProblemForm) => {
     console.log("문제 생성 클릭");
     mutation.mutate(data);
-  };
-
-  const handlePrev = () => {
-    navigate("/");
   };
 
   return (
@@ -73,9 +70,7 @@ const CreateProblem = () => {
           {mutation.isPending ? "전송 중..." : "문제 생성"}
         </button>
       </form>
-      <button onClick={handlePrev} className={styles.back}>
-        ←
-      </button>
+      <BackButton url="/" />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import AnswerInput from "../components/problemDetail/answerInput";
 import Loading from "../components/common/loading";
 import ErrorScreen from "../components/common/errorScreen";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../components/common/backButton";
 
 const ProblemDetail = () => {
   const navigate = useNavigate();
@@ -28,7 +29,11 @@ const ProblemDetail = () => {
           {data.data.description
             .split(";")
             .map((sentence: string, index: number) => {
-              return <p key={index}>{maskSentence(sentence, hiddenKeyword)}</p>;
+              return (
+                <div className={styles.text} key={index}>
+                  {maskSentence(sentence, hiddenKeyword)}
+                </div>
+              );
             })}
         </div>
         <AnswerInput
@@ -39,9 +44,7 @@ const ProblemDetail = () => {
           handleKeyDown={handleKeyDown}
           hiddenKeywords={hiddenKeyword}
         />
-        <button onClick={handlePrev} className={styles.back}>
-          ←
-        </button>
+        <BackButton url="/problem-list" />
       </div>
     </div>
   );
