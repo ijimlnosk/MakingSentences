@@ -5,21 +5,15 @@ import { useAnswer } from "../hooks/useAnswer";
 import AnswerInput from "../components/problemDetail/answerInput";
 import Loading from "../components/common/loading";
 import ErrorScreen from "../components/common/errorScreen";
-import { useNavigate } from "react-router-dom";
 import BackButton from "../components/common/backButton";
 
 const ProblemDetail = () => {
-  const navigate = useNavigate();
   const { data, isLoading, isError, hiddenKeyword } = useProblemDetail();
   const { userAnswers, setUserAnswer, isCorrect, checkAnswer, handleKeyDown } =
     useAnswer(hiddenKeyword);
 
   if (isLoading) return <Loading />;
   if (isError || !data) return <ErrorScreen message="문제 데이터가 없습니다" />;
-
-  const handlePrev = () => {
-    navigate("/problem-list");
-  };
 
   return (
     <div className={styles.container}>

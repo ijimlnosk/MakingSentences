@@ -4,13 +4,10 @@ import { postCreateProblem } from "../apis/problem";
 import { useProblemForm } from "../hooks/useProblemForm";
 import KeywordInputList from "../components/createProblem/keywordInputList";
 import styles from "./create-problem.module.scss";
-import { useNavigate } from "react-router-dom";
 import BackButton from "../components/common/backButton";
 
 const CreateProblem = () => {
   const queryClient = useQueryClient();
-
-  const navigate = useNavigate();
 
   const mutation = useMutation({
     mutationFn: (newProblem: ProblemForm) => postCreateProblem(newProblem),
