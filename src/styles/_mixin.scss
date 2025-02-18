@@ -4,19 +4,25 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #2b2b2b;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 @mixin button-style {
-  background-color: #292929;
+  background-color: #4096d1;
   color: white;
   border-radius: 8px;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: #9bbed0;
+  }
 }
 
 @mixin input-style {
   padding: 2px;
-  background-color: #595959;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border-radius: 6px;
 }

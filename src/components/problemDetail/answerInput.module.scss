@@ -24,5 +24,11 @@
 
   .button {
     @include mixin.button-style;
+    width: 100px;
+    height: 40px;
+
+    :hover {
+      background-color: #4096d1;
+    }
   }
 }

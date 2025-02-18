@@ -31,7 +31,6 @@ const CreateProblem = () => {
   } = useProblemForm();
 
   const onSubmit = (data: ProblemForm) => {
-    console.log("문제 생성 클릭");
     mutation.mutate(data);
   };
 
